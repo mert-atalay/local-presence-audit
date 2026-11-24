@@ -10,6 +10,12 @@ This is an example tool. I wrote it to show how I approach a small data and repo
 
 You can try it with no API key. The demo mode runs the whole pipeline on invented businesses.
 
+## Background
+
+In my job I built and run a larger private tool for this, covering every location of a multi-location business: it reads the owner side of each Business Profile, cross-checks the website against the profiles, tracks competitors around each location, and queues recommended changes for a person to approve. That tool and its data are private.
+
+This repository is a small, separate rewrite of one part of that idea, the public-data audit. It shares no code or data with the private tool.
+
 ## What it checks, and why
 
 Each check is a pure function. It returns a score from 0 to 100, a status, a plain explanation and a list of fixes.
