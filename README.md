@@ -12,7 +12,7 @@ You can try it with no API key. The demo mode runs the whole pipeline on invente
 
 ## Background
 
-In my job I built and run a larger private tool for this, covering every location of a multi-location business: it reads the owner side of each Business Profile, cross-checks the website against the profiles, tracks competitors around each location, and queues recommended changes for a person to approve. That tool and its data are private.
+In my job I built and run a larger private tool for this, covering every location of a multi-location business: it reads the owner side of each Business Profile, cross-checks the website against the profiles, tracks keyword rankings and competitors on a map grid around each location, and queues recommended changes for a person to approve. That tool and its data are private.
 
 This repository is a small, separate rewrite of one part of that idea, the public-data audit. It shares no code or data with the private tool.
 
