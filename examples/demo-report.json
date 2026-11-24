@@ -1,0 +1,439 @@
+{
+  "tool": "local-presence-audit",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-01T12:00:00.000Z",
+  "demo": true,
+  "options": {
+    "radiusMeters": 2000,
+    "competitorCount": 10,
+    "skip": []
+  },
+  "locations": [
+    {
+      "label": "Bike shop (by name and city)",
+      "input": {
+        "label": "Bike shop (by name and city)",
+        "query": "Tidewater Bike Repair, Maple Hollow, BC"
+      },
+      "score": 23,
+      "status": "fail",
+      "checks": [
+        {
+          "id": "completeness",
+          "title": "Listing completeness",
+          "score": 17,
+          "status": "fail",
+          "summary": "17 of 100 completeness points.",
+          "details": [
+            "Phone number: missing",
+            "Website: missing",
+            "Opening hours: missing",
+            "Primary category: present",
+            "Photos: 1",
+            "Editorial summary: none (Google writes this, the owner cannot add it directly)",
+            "Business status: OPERATIONAL"
+          ],
+          "fixes": [
+            {
+              "priority": "high",
+              "text": "Add a phone number to the listing."
+            },
+            {
+              "priority": "high",
+              "text": "Add a website link to the listing."
+            },
+            {
+              "priority": "high",
+              "text": "Add regular opening hours to the listing."
+            },
+            {
+              "priority": "medium",
+              "text": "Add photos of the exterior, interior and products or team. The listing shows 1."
+            }
+          ]
+        },
+        {
+          "id": "reputation",
+          "title": "Rating and review volume",
+          "score": 46,
+          "status": "fail",
+          "summary": "3.9 stars from 6 ratings.",
+          "details": [
+            "Rating part: 53/100 (60% of this check)",
+            "Volume part: 37/100 (40% of this check)"
+          ],
+          "fixes": [
+            {
+              "priority": "high",
+              "text": "The average rating is 3.9. Read the low ratings, reply to them and fix the complaints that repeat."
+            },
+            {
+              "priority": "medium",
+              "text": "Only 6 ratings. Build a routine of asking customers for a review after a visit. Do not offer incentives."
+            }
+          ]
+        },
+        {
+          "id": "recency",
+          "title": "Review recency",
+          "score": 10,
+          "status": "fail",
+          "summary": "The newest review in the sample is 517 days old.",
+          "details": [
+            "Based on a sample of 2 reviews. The API returns at most 5, picked by relevance, so a newer review may exist."
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "No review newer than 517 days in the sample. Check the listing, and if that holds, ask recent customers for reviews."
+            }
+          ]
+        },
+        {
+          "id": "hours",
+          "title": "Hours sanity",
+          "score": 0,
+          "status": "fail",
+          "summary": "No regular opening hours on the listing.",
+          "details": [],
+          "fixes": []
+        },
+        {
+          "id": "website",
+          "title": "Website consistency",
+          "score": null,
+          "status": "skipped",
+          "summary": "The listing has no website, so there is nothing to compare.",
+          "details": [],
+          "fixes": []
+        },
+        {
+          "id": "competitors",
+          "title": "Competitor comparison",
+          "score": 33,
+          "status": "fail",
+          "summary": "Ranks 3 of 4 on rating and 3 of 4 on review count among nearby listings of the same type.",
+          "details": [
+            "Compared with the 3 nearest \"bicycle_store\" listings within 2000 m.",
+            "Rating rank: 3 of 4",
+            "Review count rank: 3 of 4",
+            "Hollow Cycle Works: 4.7 stars, 188 ratings, 191 m away",
+            "Harbour Wheels: no rating, 0 ratings, 441 m away",
+            "Spoke and Chain: 4.4 stars, 64 ratings, 686 m away"
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "Nearby listings of the same type have more reviews (rank 3 of 4). Review count is the gap to close."
+            }
+          ]
+        }
+      ],
+      "fixes": [
+        {
+          "priority": "high",
+          "text": "Add a phone number to the listing.",
+          "check": "completeness"
+        },
+        {
+          "priority": "high",
+          "text": "Add a website link to the listing.",
+          "check": "completeness"
+        },
+        {
+          "priority": "high",
+          "text": "Add regular opening hours to the listing.",
+          "check": "completeness"
+        },
+        {
+          "priority": "high",
+          "text": "The average rating is 3.9. Read the low ratings, reply to them and fix the complaints that repeat.",
+          "check": "reputation"
+        },
+        {
+          "priority": "medium",
+          "text": "Add photos of the exterior, interior and products or team. The listing shows 1.",
+          "check": "completeness"
+        },
+        {
+          "priority": "medium",
+          "text": "Only 6 ratings. Build a routine of asking customers for a review after a visit. Do not offer incentives.",
+          "check": "reputation"
+        },
+        {
+          "priority": "medium",
+          "text": "Nearby listings of the same type have more reviews (rank 3 of 4). Review count is the gap to close.",
+          "check": "competitors"
+        },
+        {
+          "priority": "medium",
+          "text": "No review newer than 517 days in the sample. Check the listing, and if that holds, ask recent customers for reviews.",
+          "check": "recency"
+        }
+      ],
+      "placeId": "DEMO_tidewater_bikes",
+      "name": "Tidewater Bike Repair",
+      "address": "77 Quay Road, Maple Hollow, BC V0X 1A6, Canada",
+      "googleMapsUri": "https://maps.google.com/?cid=1000000000000000003"
+    },
+    {
+      "label": "Bakery (by name and city)",
+      "input": {
+        "label": "Bakery (by name and city)",
+        "query": "Corner Loaf Bakery, Maple Hollow"
+      },
+      "score": 64,
+      "status": "warn",
+      "checks": [
+        {
+          "id": "completeness",
+          "title": "Listing completeness",
+          "score": 83,
+          "status": "pass",
+          "summary": "83 of 100 completeness points.",
+          "details": [
+            "Phone number: present",
+            "Website: present",
+            "Opening hours: present",
+            "Primary category: present",
+            "Photos: 4",
+            "Editorial summary: none (Google writes this, the owner cannot add it directly)",
+            "Business status: OPERATIONAL"
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "Add photos of the exterior, interior and products or team. The listing shows 4."
+            }
+          ]
+        },
+        {
+          "id": "reputation",
+          "title": "Rating and review volume",
+          "score": 74,
+          "status": "warn",
+          "summary": "4.3 stars from 38 ratings.",
+          "details": [
+            "Rating part: 76/100 (60% of this check)",
+            "Volume part: 69/100 (40% of this check)"
+          ],
+          "fixes": []
+        },
+        {
+          "id": "recency",
+          "title": "Review recency",
+          "score": 30,
+          "status": "fail",
+          "summary": "The newest review in the sample is 264 days old.",
+          "details": [
+            "Based on a sample of 4 reviews. The API returns at most 5, picked by relevance, so a newer review may exist."
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "No review newer than 264 days in the sample. Check the listing, and if that holds, ask recent customers for reviews."
+            }
+          ]
+        },
+        {
+          "id": "hours",
+          "title": "Hours sanity",
+          "score": 75,
+          "status": "warn",
+          "summary": "Hours listed for 4 of 7 days, with points to check.",
+          "details": [
+            "Sunday: open for only 30 minutes (09:00 to 09:30).",
+            "Shown as closed on: Monday, Tuesday, Wednesday."
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "Check the Sunday hours. A 30 minute opening looks like a typing error."
+            },
+            {
+              "priority": "medium",
+              "text": "The listing shows the business closed 3 days a week. Confirm no days are missing."
+            }
+          ]
+        },
+        {
+          "id": "website",
+          "title": "Website consistency",
+          "score": 67,
+          "status": "warn",
+          "summary": "The site structured data and the listing disagree on: phone.",
+          "details": [
+            "Structured data type: Bakery",
+            "Name: match (listing: Corner Loaf Bakery | site: Corner Loaf Bakery & Cafe)",
+            "Address: match (listing: 9 Mill Lane, Maple Hollow, BC V0X 1A3, Canada | site: 9 Mill Ln, Maple Hollow, V0X 1A3)",
+            "Phone: mismatch (listing: +1 604-555-0117 | site: (604) 555-0199)"
+          ],
+          "fixes": [
+            {
+              "priority": "high",
+              "text": "The phone differs between the listing (\"+1 604-555-0117\") and the website (\"(604) 555-0199\"). Make them the same."
+            }
+          ]
+        },
+        {
+          "id": "competitors",
+          "title": "Competitor comparison",
+          "score": 25,
+          "status": "fail",
+          "summary": "Ranks 4 of 5 on rating and 4 of 5 on review count among nearby listings of the same type.",
+          "details": [
+            "Compared with the 4 nearest \"bakery\" listings within 2000 m.",
+            "Rating rank: 4 of 5",
+            "Review count rank: 4 of 5",
+            "Mill Street Bread Co.: 4.7 stars, 410 ratings, 88 m away",
+            "Hollow Oven: 4.5 stars, 126 ratings, 358 m away",
+            "Daily Crumb: 4.1 stars, 22 ratings, 582 m away",
+            "Sweet Tide Patisserie: 4.6 stars, 77 ratings, 802 m away"
+          ],
+          "fixes": [
+            {
+              "priority": "medium",
+              "text": "Nearby listings of the same type have more reviews (rank 4 of 5). Review count is the gap to close."
+            }
+          ]
+        }
+      ],
+      "fixes": [
+        {
+          "priority": "high",
+          "text": "The phone differs between the listing (\"+1 604-555-0117\") and the website (\"(604) 555-0199\"). Make them the same.",
+          "check": "website"
+        },
+        {
+          "priority": "medium",
+          "text": "Add photos of the exterior, interior and products or team. The listing shows 4.",
+          "check": "completeness"
+        },
+        {
+          "priority": "medium",
+          "text": "Check the Sunday hours. A 30 minute opening looks like a typing error.",
+          "check": "hours"
+        },
+        {
+          "priority": "medium",
+          "text": "The listing shows the business closed 3 days a week. Confirm no days are missing.",
+          "check": "hours"
+        },
+        {
+          "priority": "medium",
+          "text": "Nearby listings of the same type have more reviews (rank 4 of 5). Review count is the gap to close.",
+          "check": "competitors"
+        },
+        {
+          "priority": "medium",
+          "text": "No review newer than 264 days in the sample. Check the listing, and if that holds, ask recent customers for reviews.",
+          "check": "recency"
+        }
+      ],
+      "placeId": "DEMO_corner_loaf",
+      "name": "Corner Loaf Bakery",
+      "address": "9 Mill Lane, Maple Hollow, BC V0X 1A3, Canada",
+      "googleMapsUri": "https://maps.google.com/?cid=1000000000000000002",
+      "websiteUri": "https://cornerloaf.example/"
+    },
+    {
+      "label": "Dental (by place id)",
+      "input": {
+        "label": "Dental (by place id)",
+        "placeId": "DEMO_brightside_dental"
+      },
+      "score": 96,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "completeness",
+          "title": "Listing completeness",
+          "score": 100,
+          "status": "pass",
+          "summary": "100 of 100 completeness points.",
+          "details": [
+            "Phone number: present",
+            "Website: present",
+            "Opening hours: present",
+            "Primary category: present",
+            "Photos: 10 or more (the API returns at most 10)",
+            "Editorial summary: present",
+            "Business status: OPERATIONAL"
+          ],
+          "fixes": []
+        },
+        {
+          "id": "reputation",
+          "title": "Rating and review volume",
+          "score": 100,
+          "status": "pass",
+          "summary": "4.8 stars from 212 ratings.",
+          "details": [
+            "Rating part: 100/100 (60% of this check)",
+            "Volume part: 100/100 (40% of this check)"
+          ],
+          "fixes": []
+        },
+        {
+          "id": "recency",
+          "title": "Review recency",
+          "score": 100,
+          "status": "pass",
+          "summary": "The newest review in the sample is 11 days old.",
+          "details": [
+            "Based on a sample of 5 reviews. The API returns at most 5, picked by relevance, so a newer review may exist."
+          ],
+          "fixes": []
+        },
+        {
+          "id": "hours",
+          "title": "Hours sanity",
+          "score": 100,
+          "status": "pass",
+          "summary": "Hours listed for 6 of 7 days, nothing unusual.",
+          "details": [
+            "Shown as closed on: Sunday."
+          ],
+          "fixes": []
+        },
+        {
+          "id": "website",
+          "title": "Website consistency",
+          "score": 100,
+          "status": "pass",
+          "summary": "Name, address and phone in the site structured data agree with the listing.",
+          "details": [
+            "Structured data type: Dentist",
+            "Name: match (listing: Brightside Dental Studio | site: Brightside Dental Studio)",
+            "Address: match (listing: 214 Alder Street, Maple Hollow, BC V0X 1A1, Canada | site: 214 Alder St., Maple Hollow, V0X 1A1)",
+            "Phone: match (listing: +1 604-555-0142 | site: +1-604-555-0142)"
+          ],
+          "fixes": []
+        },
+        {
+          "id": "competitors",
+          "title": "Competitor comparison",
+          "score": 75,
+          "status": "warn",
+          "summary": "Ranks 2 of 5 on rating and 2 of 5 on review count among nearby listings of the same type.",
+          "details": [
+            "Compared with the 4 nearest \"dentist\" listings within 2000 m.",
+            "Rating rank: 2 of 5",
+            "Review count rank: 2 of 5",
+            "Alder Family Dentistry: 4.6 stars, 340 ratings, 137 m away",
+            "Hollow Smiles Dental: 4.9 stars, 95 ratings, 262 m away",
+            "Maple Hollow Dental Centre: 4.2 stars, 151 ratings, 802 m away",
+            "Quayside Dental: 4.4 stars, 58 ratings, 1030 m away"
+          ],
+          "fixes": []
+        }
+      ],
+      "fixes": [],
+      "placeId": "DEMO_brightside_dental",
+      "name": "Brightside Dental Studio",
+      "address": "214 Alder Street, Maple Hollow, BC V0X 1A1, Canada",
+      "googleMapsUri": "https://maps.google.com/?cid=1000000000000000001",
+      "websiteUri": "https://brightside-dental.example/"
+    }
+  ]
+}

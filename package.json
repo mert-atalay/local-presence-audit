@@ -1,0 +1,30 @@
+{
+  "name": "local-presence-audit",
+  "version": "0.1.0",
+  "description": "Command-line audit of a business's public Google Maps listing, using the Places API (New). Example tool.",
+  "license": "MIT",
+  "author": "Mert Atalay",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "local-presence-audit": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "fixtures"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "audit": "tsx src/cli.ts audit",
+    "demo": "tsx src/cli.ts audit --demo"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

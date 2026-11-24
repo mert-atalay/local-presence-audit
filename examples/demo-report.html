@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local presence audit</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7f9;--card:#fff;--text:#1b1f24;--muted:#5c6570;--line:#dfe3e8;--link:#0b57d0;
+--pass:#167030;--warn:#855600;--fail:#b91c1c;--skip:#57606a;--pass-bg:#dafbe1;--warn-bg:#fff4cf;--fail-bg:#ffe5e3;--skip-bg:#eaeef2}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317;--card:#171c22;--text:#e6eaef;--muted:#9aa5b1;--line:#2b333c;--link:#7fb2ff;
+--pass:#56d364;--warn:#e3b341;--fail:#ff7b72;--skip:#8b949e;--pass-bg:#12301c;--warn-bg:#3a2d0a;--fail-bg:#42181a;--skip-bg:#252c34}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:920px;margin:0 auto;padding:32px 16px 48px}
+h1{font-size:1.75rem;margin:0 0 4px}h2{font-size:1.35rem;margin:0}h3{font-size:1rem;margin:24px 0 8px}h4{font-size:1rem;margin:0}
+p{margin:8px 0}a{color:var(--link)}.muted{color:var(--muted);font-size:.9rem}
+.notice{border:1px solid var(--line);border-left:4px solid var(--warn);background:var(--card);padding:10px 14px;border-radius:6px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin:20px 0}
+.head{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-size:2.25rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}.score small{font-size:1rem;font-weight:400;color:var(--muted)}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.badge.pass{color:var(--pass);background:var(--pass-bg)}.badge.warn{color:var(--warn);background:var(--warn-bg)}
+.badge.fail{color:var(--fail);background:var(--fail-bg)}.badge.skipped{color:var(--skip);background:var(--skip-bg)}
+.badge.high{color:var(--fail);background:var(--fail-bg)}.badge.medium{color:var(--warn);background:var(--warn-bg)}.badge.low{color:var(--skip);background:var(--skip-bg)}
+.meter{height:6px;background:var(--skip-bg);border-radius:3px;overflow:hidden;margin:8px 0}
+.meter span{display:block;height:100%}.meter .pass{background:var(--pass)}.meter .warn{background:var(--warn)}.meter .fail{background:var(--fail)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+ol.fixes{padding-left:22px;margin:8px 0}ol.fixes li{margin:6px 0}
+.check{border-top:1px solid var(--line);padding:14px 0 6px}.check ul{margin:6px 0;padding-left:20px;color:var(--muted);font-size:.92rem}
+.check li{overflow-wrap:anywhere}dl{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:12px 0 0;font-size:.92rem}
+dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}footer{margin-top:32px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Local presence audit</h1>
+<p class="muted">Generated 2026-11-01 by local-presence-audit 0.1.0</p>
+<p class="notice">This is demo output. The businesses are invented and no live data was requested.</p>
+</header>
+<section class="card" id="summary">
+<h2>Summary</h2>
+<p class="muted">3 locations, lowest score first.</p>
+<div class="scroll"><table>
+<thead><tr><th>Location</th><th>Score</th><th>Status</th><th>First fix</th></tr></thead>
+<tbody>
+<tr><td><a href="#loc-0">Tidewater Bike Repair</a></td><td class="num">23/100</td><td><span class="badge fail">Fail</span></td><td>Add a phone number to the listing.</td></tr>
+<tr><td><a href="#loc-1">Corner Loaf Bakery</a></td><td class="num">64/100</td><td><span class="badge warn">Needs attention</span></td><td>The phone differs between the listing (&quot;+1 604-555-0117&quot;) and the website (&quot;(604) 555-0199&quot;). Make them the same.</td></tr>
+<tr><td><a href="#loc-2">Brightside Dental Studio</a></td><td class="num">96/100</td><td><span class="badge pass">Pass</span></td><td>None</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="card" id="loc-0">
+<div class="head"><h2>Tidewater Bike Repair</h2><div><span class="score">23<small>/100</small></span> <span class="badge fail">Fail</span></div></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:23%"></span></div>
+<dl><dt>Address</dt><dd>77 Quay Road, Maple Hollow, BC V0X 1A6, Canada</dd><dt>Place id</dt><dd><code>DEMO_tidewater_bikes</code></dd><dt>Google Maps</dt><dd><a href="https://maps.google.com/?cid=1000000000000000003" rel="noopener noreferrer">Open listing</a></dd></dl>
+<h3>Fix list</h3>
+<ol class="fixes"><li><span class="badge high">high</span> Add a phone number to the listing.</li><li><span class="badge high">high</span> Add a website link to the listing.</li><li><span class="badge high">high</span> Add regular opening hours to the listing.</li><li><span class="badge high">high</span> The average rating is 3.9. Read the low ratings, reply to them and fix the complaints that repeat.</li><li><span class="badge medium">medium</span> Add photos of the exterior, interior and products or team. The listing shows 1.</li><li><span class="badge medium">medium</span> Only 6 ratings. Build a routine of asking customers for a review after a visit. Do not offer incentives.</li><li><span class="badge medium">medium</span> Nearby listings of the same type have more reviews (rank 3 of 4). Review count is the gap to close.</li><li><span class="badge medium">medium</span> No review newer than 517 days in the sample. Check the listing, and if that holds, ask recent customers for reviews.</li></ol>
+<h3>Checks</h3>
+<div class="check" data-check="completeness">
+<div class="head"><h4>Listing completeness</h4><span><strong>17/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:17%"></span></div>
+<p>17 of 100 completeness points.</p>
+<ul><li>Phone number: missing</li><li>Website: missing</li><li>Opening hours: missing</li><li>Primary category: present</li><li>Photos: 1</li><li>Editorial summary: none (Google writes this, the owner cannot add it directly)</li><li>Business status: OPERATIONAL</li></ul>
+</div>
+<div class="check" data-check="reputation">
+<div class="head"><h4>Rating and review volume</h4><span><strong>46/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:46%"></span></div>
+<p>3.9 stars from 6 ratings.</p>
+<ul><li>Rating part: 53/100 (60% of this check)</li><li>Volume part: 37/100 (40% of this check)</li></ul>
+</div>
+<div class="check" data-check="recency">
+<div class="head"><h4>Review recency</h4><span><strong>10/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:10%"></span></div>
+<p>The newest review in the sample is 517 days old.</p>
+<ul><li>Based on a sample of 2 reviews. The API returns at most 5, picked by relevance, so a newer review may exist.</li></ul>
+</div>
+<div class="check" data-check="hours">
+<div class="head"><h4>Hours sanity</h4><span><strong>0/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:0%"></span></div>
+<p>No regular opening hours on the listing.</p>
+
+</div>
+<div class="check" data-check="website">
+<div class="head"><h4>Website consistency</h4><span><strong>n/a</strong> <span class="badge skipped">Not scored</span></span></div>
+
+<p>The listing has no website, so there is nothing to compare.</p>
+
+</div>
+<div class="check" data-check="competitors">
+<div class="head"><h4>Competitor comparison</h4><span><strong>33/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:33%"></span></div>
+<p>Ranks 3 of 4 on rating and 3 of 4 on review count among nearby listings of the same type.</p>
+<ul><li>Compared with the 3 nearest &quot;bicycle_store&quot; listings within 2000 m.</li><li>Rating rank: 3 of 4</li><li>Review count rank: 3 of 4</li><li>Hollow Cycle Works: 4.7 stars, 188 ratings, 191 m away</li><li>Harbour Wheels: no rating, 0 ratings, 441 m away</li><li>Spoke and Chain: 4.4 stars, 64 ratings, 686 m away</li></ul>
+</div>
+</section>
+<section class="card" id="loc-1">
+<div class="head"><h2>Corner Loaf Bakery</h2><div><span class="score">64<small>/100</small></span> <span class="badge warn">Needs attention</span></div></div>
+<div class="meter" aria-hidden="true"><span class="warn" style="width:64%"></span></div>
+<dl><dt>Address</dt><dd>9 Mill Lane, Maple Hollow, BC V0X 1A3, Canada</dd><dt>Place id</dt><dd><code>DEMO_corner_loaf</code></dd><dt>Google Maps</dt><dd><a href="https://maps.google.com/?cid=1000000000000000002" rel="noopener noreferrer">Open listing</a></dd><dt>Website</dt><dd><a href="https://cornerloaf.example/" rel="noopener noreferrer">https://cornerloaf.example/</a></dd></dl>
+<h3>Fix list</h3>
+<ol class="fixes"><li><span class="badge high">high</span> The phone differs between the listing (&quot;+1 604-555-0117&quot;) and the website (&quot;(604) 555-0199&quot;). Make them the same.</li><li><span class="badge medium">medium</span> Add photos of the exterior, interior and products or team. The listing shows 4.</li><li><span class="badge medium">medium</span> Check the Sunday hours. A 30 minute opening looks like a typing error.</li><li><span class="badge medium">medium</span> The listing shows the business closed 3 days a week. Confirm no days are missing.</li><li><span class="badge medium">medium</span> Nearby listings of the same type have more reviews (rank 4 of 5). Review count is the gap to close.</li><li><span class="badge medium">medium</span> No review newer than 264 days in the sample. Check the listing, and if that holds, ask recent customers for reviews.</li></ol>
+<h3>Checks</h3>
+<div class="check" data-check="completeness">
+<div class="head"><h4>Listing completeness</h4><span><strong>83/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:83%"></span></div>
+<p>83 of 100 completeness points.</p>
+<ul><li>Phone number: present</li><li>Website: present</li><li>Opening hours: present</li><li>Primary category: present</li><li>Photos: 4</li><li>Editorial summary: none (Google writes this, the owner cannot add it directly)</li><li>Business status: OPERATIONAL</li></ul>
+</div>
+<div class="check" data-check="reputation">
+<div class="head"><h4>Rating and review volume</h4><span><strong>74/100</strong> <span class="badge warn">Needs attention</span></span></div>
+<div class="meter" aria-hidden="true"><span class="warn" style="width:74%"></span></div>
+<p>4.3 stars from 38 ratings.</p>
+<ul><li>Rating part: 76/100 (60% of this check)</li><li>Volume part: 69/100 (40% of this check)</li></ul>
+</div>
+<div class="check" data-check="recency">
+<div class="head"><h4>Review recency</h4><span><strong>30/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:30%"></span></div>
+<p>The newest review in the sample is 264 days old.</p>
+<ul><li>Based on a sample of 4 reviews. The API returns at most 5, picked by relevance, so a newer review may exist.</li></ul>
+</div>
+<div class="check" data-check="hours">
+<div class="head"><h4>Hours sanity</h4><span><strong>75/100</strong> <span class="badge warn">Needs attention</span></span></div>
+<div class="meter" aria-hidden="true"><span class="warn" style="width:75%"></span></div>
+<p>Hours listed for 4 of 7 days, with points to check.</p>
+<ul><li>Sunday: open for only 30 minutes (09:00 to 09:30).</li><li>Shown as closed on: Monday, Tuesday, Wednesday.</li></ul>
+</div>
+<div class="check" data-check="website">
+<div class="head"><h4>Website consistency</h4><span><strong>67/100</strong> <span class="badge warn">Needs attention</span></span></div>
+<div class="meter" aria-hidden="true"><span class="warn" style="width:67%"></span></div>
+<p>The site structured data and the listing disagree on: phone.</p>
+<ul><li>Structured data type: Bakery</li><li>Name: match (listing: Corner Loaf Bakery | site: Corner Loaf Bakery &amp; Cafe)</li><li>Address: match (listing: 9 Mill Lane, Maple Hollow, BC V0X 1A3, Canada | site: 9 Mill Ln, Maple Hollow, V0X 1A3)</li><li>Phone: mismatch (listing: +1 604-555-0117 | site: (604) 555-0199)</li></ul>
+</div>
+<div class="check" data-check="competitors">
+<div class="head"><h4>Competitor comparison</h4><span><strong>25/100</strong> <span class="badge fail">Fail</span></span></div>
+<div class="meter" aria-hidden="true"><span class="fail" style="width:25%"></span></div>
+<p>Ranks 4 of 5 on rating and 4 of 5 on review count among nearby listings of the same type.</p>
+<ul><li>Compared with the 4 nearest &quot;bakery&quot; listings within 2000 m.</li><li>Rating rank: 4 of 5</li><li>Review count rank: 4 of 5</li><li>Mill Street Bread Co.: 4.7 stars, 410 ratings, 88 m away</li><li>Hollow Oven: 4.5 stars, 126 ratings, 358 m away</li><li>Daily Crumb: 4.1 stars, 22 ratings, 582 m away</li><li>Sweet Tide Patisserie: 4.6 stars, 77 ratings, 802 m away</li></ul>
+</div>
+</section>
+<section class="card" id="loc-2">
+<div class="head"><h2>Brightside Dental Studio</h2><div><span class="score">96<small>/100</small></span> <span class="badge pass">Pass</span></div></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:96%"></span></div>
+<dl><dt>Address</dt><dd>214 Alder Street, Maple Hollow, BC V0X 1A1, Canada</dd><dt>Place id</dt><dd><code>DEMO_brightside_dental</code></dd><dt>Google Maps</dt><dd><a href="https://maps.google.com/?cid=1000000000000000001" rel="noopener noreferrer">Open listing</a></dd><dt>Website</dt><dd><a href="https://brightside-dental.example/" rel="noopener noreferrer">https://brightside-dental.example/</a></dd></dl>
+<h3>Fix list</h3>
+<p>Nothing to fix from these checks.</p>
+<h3>Checks</h3>
+<div class="check" data-check="completeness">
+<div class="head"><h4>Listing completeness</h4><span><strong>100/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:100%"></span></div>
+<p>100 of 100 completeness points.</p>
+<ul><li>Phone number: present</li><li>Website: present</li><li>Opening hours: present</li><li>Primary category: present</li><li>Photos: 10 or more (the API returns at most 10)</li><li>Editorial summary: present</li><li>Business status: OPERATIONAL</li></ul>
+</div>
+<div class="check" data-check="reputation">
+<div class="head"><h4>Rating and review volume</h4><span><strong>100/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:100%"></span></div>
+<p>4.8 stars from 212 ratings.</p>
+<ul><li>Rating part: 100/100 (60% of this check)</li><li>Volume part: 100/100 (40% of this check)</li></ul>
+</div>
+<div class="check" data-check="recency">
+<div class="head"><h4>Review recency</h4><span><strong>100/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:100%"></span></div>
+<p>The newest review in the sample is 11 days old.</p>
+<ul><li>Based on a sample of 5 reviews. The API returns at most 5, picked by relevance, so a newer review may exist.</li></ul>
+</div>
+<div class="check" data-check="hours">
+<div class="head"><h4>Hours sanity</h4><span><strong>100/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:100%"></span></div>
+<p>Hours listed for 6 of 7 days, nothing unusual.</p>
+<ul><li>Shown as closed on: Sunday.</li></ul>
+</div>
+<div class="check" data-check="website">
+<div class="head"><h4>Website consistency</h4><span><strong>100/100</strong> <span class="badge pass">Pass</span></span></div>
+<div class="meter" aria-hidden="true"><span class="pass" style="width:100%"></span></div>
+<p>Name, address and phone in the site structured data agree with the listing.</p>
+<ul><li>Structured data type: Dentist</li><li>Name: match (listing: Brightside Dental Studio | site: Brightside Dental Studio)</li><li>Address: match (listing: 214 Alder Street, Maple Hollow, BC V0X 1A1, Canada | site: 214 Alder St., Maple Hollow, V0X 1A1)</li><li>Phone: match (listing: +1 604-555-0142 | site: +1-604-555-0142)</li></ul>
+</div>
+<div class="check" data-check="competitors">
+<div class="head"><h4>Competitor comparison</h4><span><strong>75/100</strong> <span class="badge warn">Needs attention</span></span></div>
+<div class="meter" aria-hidden="true"><span class="warn" style="width:75%"></span></div>
+<p>Ranks 2 of 5 on rating and 2 of 5 on review count among nearby listings of the same type.</p>
+<ul><li>Compared with the 4 nearest &quot;dentist&quot; listings within 2000 m.</li><li>Rating rank: 2 of 5</li><li>Review count rank: 2 of 5</li><li>Alder Family Dentistry: 4.6 stars, 340 ratings, 137 m away</li><li>Hollow Smiles Dental: 4.9 stars, 95 ratings, 262 m away</li><li>Maple Hollow Dental Centre: 4.2 stars, 151 ratings, 802 m away</li><li>Quayside Dental: 4.4 stars, 58 ratings, 1030 m away</li></ul>
+</div>
+</section>
+<footer class="muted">
+<p>Listing data: invented demo fixtures. Scores are rules of thumb from this tool, not Google ranking factors. Review recency uses the small sample of reviews the API returns.</p>
+</footer>
+</main>
+</body>
+</html>

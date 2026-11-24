@@ -1,0 +1,4 @@
+label,place_id,name,city
+Dental (by place id),DEMO_brightside_dental,,
+Bakery (by name and city),,Corner Loaf Bakery,Maple Hollow
+Bike shop (by name and city),,Tidewater Bike Repair,"Maple Hollow, BC"
