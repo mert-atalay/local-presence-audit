@@ -4,6 +4,8 @@ A command-line tool that audits the public Google Maps listing of a business. It
 
 This is an example tool. I wrote it to show how I approach a small data and reporting problem in TypeScript. It is not affiliated with Google. It is not a ranking tool and it does not predict search positions.
 
+Related case study on [mertatalay.com](https://mertatalay.com): [Being found in Maps and in AI answers](https://mertatalay.com/work/local-and-ai-search/).
+
 ![The HTML report: a summary table of three locations sorted by score, then one location with its score, fix list and checks](docs/report.png)
 
 *The demo report. The businesses are invented.*
